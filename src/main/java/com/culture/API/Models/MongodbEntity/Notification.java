@@ -14,12 +14,13 @@ import com.culture.API.Repository.OwnerRepository;
 import jakarta.persistence.Basic;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
-
+import org.springframework.data.annotation.Id;
 
 @Document(collection="Notification")
 public class Notification {
     
     @Basic
+    @Id
     private int idSender;
 
     @Basic
