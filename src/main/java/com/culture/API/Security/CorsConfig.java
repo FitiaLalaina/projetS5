@@ -10,6 +10,7 @@ public class CorsConfig {
 
     @Bean
     public WebMvcConfigurer corsConfigurer(){
+        System.out.println("tafiditra lc");
         return new WebMvcConfigurer(){
             @Override
             public void addCorsMappings(CorsRegistry registry){
