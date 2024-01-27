@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.culture.API.Models.Culture;
 import com.culture.API.Repository.CultureRepository;
 
-
 @RestController
 @RequestMapping("/api")
 public class CultureController {

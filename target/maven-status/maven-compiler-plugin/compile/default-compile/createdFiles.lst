@@ -16,6 +16,7 @@ com\culture\API\Models\Plot.class
 com\culture\API\Models\Yield.class
 com\culture\API\Controllers\FieldController.class
 com\culture\API\Models\Culture.class
+com\culture\API\Controllers\CorsConfig.class
 com\culture\API\Controllers\RessourceController.class
 com\culture\API\Repository\GroundTypeRepository.class
 com\culture\API\Repository\OwnerRepository.class
@@ -26,5 +27,6 @@ com\culture\API\Models\Field.class
 com\culture\API\Models\GroundType.class
 com\culture\API\Models\MongodbEntity\Notification.class
 com\culture\API\Controllers\HelloController.class
+com\culture\API\Controllers\CorsConfig$1.class
 com\culture\API\Controllers\OwnerController.class
 com\culture\API\CultureApplication.class
