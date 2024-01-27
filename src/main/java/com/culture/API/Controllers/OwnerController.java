@@ -39,7 +39,7 @@ public class OwnerController {
     public ResponseEntity<Owner> login(@RequestBody Owner o) {
         try{
             Owner ow = o.login(ownerRepository);
-            if(ow!=null){
+            if(ow!=null && ow.getPrivilege() > 0){
                 return new ResponseEntity<>(ow,HttpStatus.OK);
             }else{
                 return new ResponseEntity<>(null,HttpStatus.UNAUTHORIZED);
