@@ -1,4 +1,4 @@
-package com.culture.API.Controllers;
+package com.culture.API.Security;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 import org.springframework.web.cors.CorsConfiguration;
