@@ -17,7 +17,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = "*", methods= {RequestMethod.POST, RequestMethod.GET})
 public class OwnerController {
 
     @Autowired
