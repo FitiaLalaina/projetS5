@@ -19,7 +19,7 @@ public class Yield implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idYield;
-.
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="idSimulation")
     private Simulation simulation;
