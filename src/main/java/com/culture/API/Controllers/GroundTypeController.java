@@ -14,14 +14,18 @@ import org.springframework.web.bind.annotation.RestController;
 import com.culture.API.Models.GroundType;
 import com.culture.API.Repository.*;
 
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.CrossOrigin;
+
+
+@CrossOrigin(origins = "*", methods= {RequestMethod.POST, RequestMethod.GET})
 @RestController
 @RequestMapping("/api")
 public class GroundTypeController {
     @Autowired
-
     GroundTypeRepository groundTypeRepository;
 
-    @PostMapping("/groundTypes")
+    @PostMapping("/groundtype")
     public ResponseEntity<GroundType> saveGroundType(@RequestBody GroundType groundType) {
         try {
             GroundType groundType2 = GroundType.saveGroundType(groundType, groundTypeRepository);
@@ -31,7 +35,7 @@ public class GroundTypeController {
         }
 	}
 
-    @GetMapping("/groundTypes")
+    @GetMapping("/groundtypes")
     public ResponseEntity<List<GroundType>> listGroundType() {
         try {
             List<GroundType> groundType = GroundType.listGroundType(groundTypeRepository);

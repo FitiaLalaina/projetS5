@@ -20,6 +20,11 @@ import com.culture.API.Repository.NotificationRepository;
 import com.culture.API.Repository.OwnerRepository;
 import com.culture.API.Utils.HashGenerator;
 
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.CrossOrigin;
+
+
+@CrossOrigin(origins = "*", methods= {RequestMethod.POST, RequestMethod.GET})
 @RestController
 @RequestMapping("/api")
 public class NotificationController {
@@ -53,6 +58,7 @@ public class NotificationController {
             Notification n = repository.save(notif);
             return new ResponseEntity<>(n, HttpStatus.OK);
         } catch (Exception e) {
+            System.out.println(e.getMessage());
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }

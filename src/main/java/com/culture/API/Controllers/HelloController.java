@@ -19,7 +19,6 @@ public class HelloController  {
 
 	private static final String template = "Hello, %s!";
 
-
 	@GetMapping("/greeting")
 	public ResponseEntity<String> greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
 		

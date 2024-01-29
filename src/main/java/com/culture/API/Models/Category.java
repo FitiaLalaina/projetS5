@@ -1,7 +1,9 @@
 package com.culture.API.Models;
 
-import java.io.Serializable;
 import java.util.List;
+
+import com.culture.API.Repository.CategoryRepository;
+import com.culture.API.Repository.CultureRepository;
 
 import jakarta.persistence.Basic;
 import jakarta.persistence.Entity;
@@ -12,28 +14,26 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Transient;
 
-import com.culture.API.Repository.*;
-
 @Entity
-public class GroundType implements Serializable{
+public class Category {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idGroundType;
-
+    private int idCategory;
+    
     @Basic
     private String name;
 
-    @OneToMany(mappedBy = "groundType", fetch=FetchType.EAGER)
+    @OneToMany(mappedBy = "category", fetch=FetchType.EAGER)
     @Transient
     private List<Culture> cultures;
 
-
-    public int getIdGroundType() {
-        return idGroundType;
+    public int getIdCategory() {
+        return idCategory;
     }
 
-    public void setIdGroundType(int idGroundType) {
-        this.idGroundType = idGroundType;
+    public void setIdCategory(int idCategory) {
+        this.idCategory = idCategory;
     }
 
     public String getName() {
@@ -52,24 +52,26 @@ public class GroundType implements Serializable{
         this.cultures = cultures;
     }
 
-    public GroundType(int idGroundType, String name, List<Culture> cultures) {
-        this.idGroundType = idGroundType;
+    public Category(int idCategory, String name, List<Culture> cultures) {
+        this.idCategory = idCategory;
         this.name = name;
         this.cultures = cultures;
     }
 
-    public GroundType(){
+    public Category()
+    {
 
     }
 
-    public static GroundType saveGroundType(GroundType groundType, GroundTypeRepository groundTypeRepository){
-        GroundType groundType2 = groundTypeRepository.save(groundType);
-        return groundType2;
+    public Category insert(CategoryRepository cr)
+    {
+        Category c = cr.save(this);
+        return c;
     }
 
-    public static List<GroundType> listGroundType(GroundTypeRepository groundTypeRepository){
-        List<GroundType> groundType = groundTypeRepository.findAll();
-        return groundType;
+    public static List<Category> findAll(CategoryRepository cr) throws Exception
+    {
+        List<Category> c = cr.findAll();
+        return c;
     }
-
 }

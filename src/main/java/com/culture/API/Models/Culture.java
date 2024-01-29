@@ -41,8 +41,13 @@ public class Culture implements Serializable{
     @JoinColumn(name="idGroundType")/// Type de sol
     private GroundType groundType;
 
-    public Culture(){}
+    @ManyToOne()
+    @JoinColumn(name="idCategory")
+    private Category category;
 
+    public Culture(){
+
+    }
 
     public int getIdCulture() {
         return idCulture;
@@ -108,7 +113,15 @@ public class Culture implements Serializable{
         this.groundType = groundType;
     }
 
-    public Culture(int idCulture, String name, double seedQuantity, double yieldQuantity, int unit, double seedPrice, double yieldPrice, GroundType groundType) {
+    public Category getCategory() {
+        return category;
+    }
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+    
+    public Culture(int idCulture, String name, double seedQuantity, double yieldQuantity, int unit, double seedPrice,
+    double yieldPrice, GroundType groundType, Category category) {
         this.idCulture = idCulture;
         this.name = name;
         this.seedQuantity = seedQuantity;
@@ -117,12 +130,13 @@ public class Culture implements Serializable{
         this.seedPrice = seedPrice;
         this.yieldPrice = yieldPrice;
         this.groundType = groundType;
-    }
+        this.category = category;
+        }
 
+    
     public static Culture saveCulture(Culture culture, CultureRepository cr) throws Exception{
 
        Culture c =  cr.save(culture);
-        
        return c;
     }
 
@@ -131,4 +145,5 @@ public class Culture implements Serializable{
         List<Culture> c = cr.findAll();
         return c;
     }
+
 }

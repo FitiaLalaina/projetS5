@@ -1,0 +1,18 @@
+package com.culture.API.Repository;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import com.culture.API.Models.*;
+
+public interface SimulationDetailsRepository extends JpaRepository<SimulationDetails, Integer> {
+
+    @Query("SELECT new com.culture.API.Models.SimulationDetailsView(s.idSimulation, sd.idDetails, a.name, sd.quantity, sd.price) " +
+           "FROM Simulation s " +
+           "JOIN s.plot p " +
+           "JOIN s.simulationDetails sd " +
+           "JOIN sd.action a")
+    List<SimulationDetailsView> getSimulationDetailsWithActionName();
+}

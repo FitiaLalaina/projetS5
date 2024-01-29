@@ -14,14 +14,16 @@ import com.culture.API.Repository.OwnerRepository;
 import jakarta.persistence.Basic;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
-import org.springframework.data.annotation.Id;
+
 
 @Document(collection="Notification")
 public class Notification {
     
     @Basic
-    @Id
     private int idSender;
+
+    @Basic
+    private String name;
 
     @Basic
     private String hashcode;
@@ -80,6 +82,13 @@ public class Notification {
     }
     public void setHashcode(String hashcode) {
         this.hashcode = hashcode;
+    }
+    
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
     }
     
     public static List<Notification> findAll(NotificationRepository repository) throws SQLException {

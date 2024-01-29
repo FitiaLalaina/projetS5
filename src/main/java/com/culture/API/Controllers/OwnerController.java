@@ -17,7 +17,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin
+@CrossOrigin(origins = "*", methods= {RequestMethod.POST, RequestMethod.GET})
 public class OwnerController {
 
     @Autowired
@@ -35,11 +35,12 @@ public class OwnerController {
             return new ResponseEntity<>(null,HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
     @PostMapping("/login")
     public ResponseEntity<Owner> login(@RequestBody Owner o) {
         try{
             Owner ow = o.login(ownerRepository);
-            if(ow!=null && ow.getPrivilege() > 0){
+            if(ow!=null){
                 return new ResponseEntity<>(ow,HttpStatus.OK);
             }else{
                 return new ResponseEntity<>(null,HttpStatus.UNAUTHORIZED);
@@ -52,6 +53,7 @@ public class OwnerController {
         }
 
     }
+
     @PostMapping("/owner")
     public ResponseEntity<Owner> insertOwner(@RequestBody Owner o) {
         try{
@@ -65,6 +67,7 @@ public class OwnerController {
         }
 
     }
+    
     // @GetMapping("/owners")
     // public ResponseEntity<List<Field>> getOwnersWithFields(){
     //     try{

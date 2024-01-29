@@ -1,7 +1,7 @@
 package com.culture.API.Models;
 
 import java.io.Serializable;
-import java.security.Timestamp;
+import java.sql.Timestamp;
 
 import jakarta.persistence.Basic;
 import jakarta.persistence.CascadeType;

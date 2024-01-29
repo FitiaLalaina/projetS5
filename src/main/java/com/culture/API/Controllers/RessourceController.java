@@ -10,6 +10,11 @@ import java.util.List;
 import com.culture.API.Models.Ressource;
 import com.culture.API.Repository.RessourceRepository;
 
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.CrossOrigin;
+
+
+@CrossOrigin(origins = "*", methods= {RequestMethod.POST, RequestMethod.GET})
 @RestController
 @RequestMapping("/api")
 public class RessourceController {
@@ -17,7 +22,7 @@ public class RessourceController {
 
     RessourceRepository ressourceRepository;
 
-    @PostMapping("/ressources")
+    @PostMapping("/ressource")
 	public ResponseEntity<Ressource> saveRessource(@RequestBody Ressource ressource) 
     {
         try { 
@@ -29,7 +34,6 @@ public class RessourceController {
 		
 	}
 
-
     @GetMapping("/ressources")
 	public ResponseEntity<List<Ressource>> findRessource() 
     {
@@ -39,8 +43,6 @@ public class RessourceController {
         } catch(Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
-		
 	}
-
 
 }
