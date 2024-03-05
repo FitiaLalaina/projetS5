@@ -1,0 +1,94 @@
+{
+    "body plant":
+    {
+        "idSimulation":null,
+        "plot": {
+            "idPlot": 5,
+            "field": {
+                "idField": 1,
+                "hashcode": null,
+                "latitude": 40.7128,
+                "longitude": -74.006,
+                "owner": {
+                    "idOwner": 1,
+                    "name": "John Doe",
+                    "email": "john@example.com",
+                    "pwd": "password123",
+                    "wallet": null,
+                    "privilege": 1,
+                    "fields": null
+                },
+                "plots": null
+            },
+            "area": 10.5,
+            "groundType": {
+                "idGroundType": 1,
+                "name": "Type A",
+                "cultures": null
+            }
+        },
+        "culture": {
+            "idCulture": 1,
+            "name": "Culture A",
+            "seedQuantity": 10.0,
+            "yieldQuantity": 200.0,
+            "unit": 1,
+            "seedPrice": 5.0,
+            "yieldPrice": 100.0,
+            "groundType": {
+                "idGroundType": 1,
+                "name": "Type A",
+                "cultures": null
+            },
+            "category": null
+        },
+        "ressource": {
+            "idRessource": 1,
+            "name":"human ressource",
+            "pricePerUnit": 0,
+            "action": {
+                "idAction": 1,
+                "name": "Plantation",
+                "cons": 0
+            },
+            "pros": 0
+        },
+        "quantity": 0
+
+    },
+
+    "body simulate":
+    {
+
+        "idSimulation": 2,
+        "plot": null,
+        "culture":null,
+        "ressource": {
+            "idRessource":8,
+            "name":"Engrais 2",
+            "pricePerUnit": 2000,
+            "action": {
+                "idAction": 5,
+                "name": "Ajout Engrais",
+                "cons": 20
+            },
+            "pros": 20
+        },
+        "quantity": 2
+
+    },
+
+    "dataTest" :{
+        "ressource": {
+            "idRessource":8,
+            "name":"Engrais 2",
+            "pricePerUnit": 2000,
+            "action": {
+                "idAction": 5,
+                "name": "Ajout Engrais",
+                "cons": 20
+            },
+            "pros": 20
+        }
+    }
+}
